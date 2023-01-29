@@ -13,7 +13,7 @@ mongo.getCollection(function (dbs) {
 })
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../dist/smarthomes-angular')));
+app.use(express.static(path.join(__dirname, '../dist/smarthomes-ng')));
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Content-Type, Autherization");
@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
     next();
 })
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '../dist/smarthomes-angular/index.html'));
+    res.sendFile(path.join(__dirname, '../dist/smarthomes-ng/index.html'));
 });
 
 app.post(url.applHomeReqBody, function (req, res) {
