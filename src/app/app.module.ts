@@ -1,18 +1,34 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+
+import { DashboardModule } from './dashboard/dashboard.module';
+import { ApiService } from './services/api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ConstantsService } from './services/constants.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // DashboardComponent,
+    // ApplianceListComponent,
+    // BuildingListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    DashboardModule,
+    HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES),
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    ConstantsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
